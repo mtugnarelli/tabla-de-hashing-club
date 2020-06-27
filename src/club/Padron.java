@@ -12,4 +12,12 @@ public class Padron {
 
 	private Socio[] socios;
 
+	/**
+	 * @post Padrón del Club sin Socios.
+	 */
+	public Padron() {
+
+		socios = new Socio[CANTIDAD_MAXIMA];
+	}
+
 }
