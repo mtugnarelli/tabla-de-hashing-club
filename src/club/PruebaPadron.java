@@ -94,4 +94,19 @@ public class PruebaPadron {
 		Assert.assertEquals(javier, padron.obtener(7020));
 		Assert.assertEquals(marcos, padron.obtener(9046));
 	}
+	
+	@Test
+	public void afiliarSociosConNumerosQueColisionan() {
+		
+		
+		Socio marcos = new Socio(9046, "Marcos T", LocalDate.now());
+		Socio laura = new Socio(5046, "Laura M", LocalDate.now());
+		
+		padron.afiliar(marcos);
+		padron.afiliar(laura);
+		
+		Assert.assertEquals(2, padron.contar());
+		Assert.assertEquals(laura, padron.obtener(5046));
+		Assert.assertEquals(marcos, padron.obtener(9046));
+	}
 }
