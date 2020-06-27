@@ -59,6 +59,12 @@ public class Padron {
 
 		int posicion = posicionar(numeroDeSocio);
 
+		while ((socios[posicion] != null) && 
+			   (socios[posicion].obtenerNumero() != numeroDeSocio)) {
+			
+			posicion = incrementar(posicion);
+		}
+		
 		return socios[posicion];
 	}
 
