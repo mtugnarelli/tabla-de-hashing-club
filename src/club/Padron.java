@@ -30,13 +30,23 @@ public class Padron {
 
 		int numeroDeSocio = nuevoSocio.obtenerNumero();
 		int posicion = posicionar(numeroDeSocio);
-		
-		if (socios[posicion] != null) {
-			throw new NumeroDeSocioInvalido("Ya existe");
+
+		while (socios[posicion] != null) {
+			
+			if (socios[posicion].obtenerNumero() == numeroDeSocio) {
+				throw new NumeroDeSocioInvalido("Ya existe");
+			}
+			
+			posicion = incrementar(posicion);
 		}
 		
 		socios[posicion] = nuevoSocio;
 		cantidad++;
+	}
+	
+	private int incrementar(int posicion) {
+		
+		return (posicion + 1) % socios.length;
 	}
 	
 	/**
