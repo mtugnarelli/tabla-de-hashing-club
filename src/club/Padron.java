@@ -10,4 +10,6 @@ public class Padron {
 	public static final int CANTIDAD_MAXIMA = 100;
 	public static final int ULTIMO_NUMERO = PRIMER_NUMERO + CANTIDAD_MAXIMA - 1;
 
+	private Socio[] socios;
+
 }
