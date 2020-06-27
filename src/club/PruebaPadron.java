@@ -17,7 +17,7 @@ public class PruebaPadron {
 		
 		for (int i = 0; i < Padron.CANTIDAD_MAXIMA; i++) {
 			
-			int numeroSocio = Padron.PRIMER_NUMERO + i;
+			int numeroSocio = 4001 + i;
 			Assert.assertFalse(padron.existe(numeroSocio));
 		}
 	}
@@ -25,7 +25,7 @@ public class PruebaPadron {
 	@Test
 	public void afiliarPrimerSocio() {
 		
-		int numero = Padron.PRIMER_NUMERO;
+		int numero = 4001;
 		Socio martin = new Socio(numero, "Martín G", LocalDate.now());
 		
 		padron.afiliar(martin);
@@ -33,22 +33,6 @@ public class PruebaPadron {
 		Assert.assertEquals(1, padron.contar());
 		Assert.assertEquals(martin, padron.obtener(numero));
 		Assert.assertTrue(padron.existe(numero));
-	}
-	
-	@Test(expected = NumeroDeSocioInvalido.class)
-	public void noSePuedeAfiliarSocioConNumeroMenorAlMinimo() {
-		
-		int numeroInvalido = Padron.PRIMER_NUMERO - 1;
-		
-		padron.afiliar(new Socio(numeroInvalido, "Juan U", LocalDate.now()));
-	}
-	
-	@Test(expected = NumeroDeSocioInvalido.class)
-	public void noSePuedeAfiliarSocioConNumeroMayorAlMaximo() {
-		
-		int numeroInvalido = Padron.PRIMER_NUMERO + Padron.CANTIDAD_MAXIMA + 1;
-		
-		padron.afiliar(new Socio(numeroInvalido, "Laura O", LocalDate.now()));
 	}
 
 	@Test(expected = NumeroDeSocioInvalido.class)
@@ -63,7 +47,7 @@ public class PruebaPadron {
 	@Test
 	public void afiliarUltimoSocio() {
 		
-		int numero = Padron.ULTIMO_NUMERO;
+		int numero = 4100;
 		Socio victoria = new Socio(numero, "Victoria L", LocalDate.now());
 		
 		padron.afiliar(victoria);
@@ -91,5 +75,23 @@ public class PruebaPadron {
 		Assert.assertEquals(laura, padron.obtener(4005));
 		Assert.assertEquals(marcos, padron.obtener(4023));
 		Assert.assertEquals(javier, padron.obtener(4078));
+	}
+
+	@Test
+	public void afiliarSociosEnUnRangoMayorAlTamanioDelPadron() {
+		
+		
+		Socio rocio = new Socio(4003, "Rocio I", LocalDate.now());
+		Socio javier = new Socio(7020, "Javier R", LocalDate.now());
+		Socio marcos = new Socio(9046, "Marcos T", LocalDate.now());
+		
+		padron.afiliar(rocio);
+		padron.afiliar(javier);
+		padron.afiliar(marcos);
+		
+		Assert.assertEquals(3, padron.contar());
+		Assert.assertEquals(rocio, padron.obtener(4003));
+		Assert.assertEquals(javier, padron.obtener(7020));
+		Assert.assertEquals(marcos, padron.obtener(9046));
 	}
 }
