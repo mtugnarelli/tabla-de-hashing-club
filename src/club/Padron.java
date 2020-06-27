@@ -68,6 +68,22 @@ public class Padron {
 		return (obtener(numeroDeSocio) != null);
 	}
 
+	/**
+	 * @return devuelve la cantidad de Socios afiliados.
+	 */
+	public int contar() {
+		
+		int cantidad = 0;
+		
+		for (int i = 0; i < socios.length; i++) {
+			if (socios[i] != null) {
+				cantidad++;
+			}
+		}
+		
+		return cantidad;
+	}
+	
 	private int posicionar(int numeroDeSocio) {
 
 		if ((numeroDeSocio < PRIMER_NUMERO) || (numeroDeSocio > ULTIMO_NUMERO)) {
