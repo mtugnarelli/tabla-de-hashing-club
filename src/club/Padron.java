@@ -39,6 +39,22 @@ public class Padron {
 		
 		socios[posicion] = nuevoSocio;
 	}
+	
+	/**
+	 * @pre 'numeroDeSocio' está en el rango 
+	 *      [PRIMER_NUMERO, ULTIMO_NUMERO].
+	 * 
+	 * @param numeroDeSocio
+	 * 
+	 * @return Socio identificado por 'numeroDeSocio' 
+	 *         o null si no existe.
+	 */
+	public Socio obtener(int numeroDeSocio) {
+
+		int posicion = posicionar(numeroDeSocio);
+
+		return socios[posicion];
+	}
 
 	private int posicionar(int numeroDeSocio) {
 
