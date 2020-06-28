@@ -32,6 +32,11 @@ public class Padron {
 
 		int numeroDeSocio = nuevoSocio.obtenerNumero();
 		int posicion = posicionar(numeroDeSocio);
+		
+		if (socios[posicion] != null) {
+			throw new NumeroDeSocioInvalido("Ya existe");
+		}
+		
 		socios[posicion] = nuevoSocio;
 	}
 
