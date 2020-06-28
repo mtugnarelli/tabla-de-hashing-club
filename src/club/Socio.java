@@ -34,4 +34,18 @@ public class Socio {
 		
 		return this.fechaIngreso;
 	}
+	
+	@Override
+	public boolean equals(Object otroObjeto) {
+
+		boolean iguales = (this == otroObjeto);
+		
+		if (!iguales && otroObjeto instanceof Socio) {
+			
+			Socio otroSocio = (Socio) otroObjeto;
+			iguales = (this.numero == otroSocio.numero);
+		}
+		
+		return iguales;
+	}
 }
