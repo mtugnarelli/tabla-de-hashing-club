@@ -11,6 +11,8 @@ public class Padron {
 	public static final int ULTIMO_NUMERO = PRIMER_NUMERO + CANTIDAD_MAXIMA - 1;
 
 	private Socio[] socios;
+	
+	private int cantidad;
 
 	/**
 	 * @post Padrón del Club sin Socios.
@@ -18,6 +20,7 @@ public class Padron {
 	public Padron() {
 
 		socios = new Socio[CANTIDAD_MAXIMA];
+		cantidad = 0;
 	}
 
 	/**
@@ -38,6 +41,7 @@ public class Padron {
 		}
 		
 		socios[posicion] = nuevoSocio;
+		cantidad++;
 	}
 	
 	/**
@@ -72,14 +76,6 @@ public class Padron {
 	 * @return devuelve la cantidad de Socios afiliados.
 	 */
 	public int contar() {
-		
-		int cantidad = 0;
-		
-		for (int i = 0; i < socios.length; i++) {
-			if (socios[i] != null) {
-				cantidad++;
-			}
-		}
 		
 		return cantidad;
 	}
