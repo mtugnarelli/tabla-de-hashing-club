@@ -56,6 +56,18 @@ public class Padron {
 		return socios[posicion];
 	}
 
+	/**
+	 * @pre 'numeroDeSocio' está en el rango 
+	 *      [PRIMER_NUMERO, ULTIMO_NUMERO].
+	 * 
+	 * @param numeroDeSocio
+	 * @return si existe el Socio identificado por 'numeroDeSocio'.
+	 */
+	public boolean existe(int numeroDeSocio) {
+
+		return (obtener(numeroDeSocio) != null);
+	}
+
 	private int posicionar(int numeroDeSocio) {
 
 		if ((numeroDeSocio < PRIMER_NUMERO) || (numeroDeSocio > ULTIMO_NUMERO)) {
