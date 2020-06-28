@@ -31,7 +31,7 @@ public class Padron {
 		int numeroDeSocio = nuevoSocio.obtenerNumero();
 		int posicion = posicionar(numeroDeSocio);
 
-		while (socios[posicion] != null) {
+		while (existeSocioEn(posicion)) {
 			
 			if (socios[posicion].tiene(numeroDeSocio)) {
 				throw new NumeroDeSocioInvalido("Ya existe");
@@ -42,6 +42,11 @@ public class Padron {
 		
 		socios[posicion] = nuevoSocio;
 		cantidad++;
+	}
+	
+	private boolean existeSocioEn(int posicion) {
+		
+		return (socios[posicion] != null);
 	}
 	
 	private int incrementar(int posicion) {
@@ -59,8 +64,7 @@ public class Padron {
 
 		int posicion = posicionar(numeroDeSocio);
 
-		while ((socios[posicion] != null) && 
-				! socios[posicion].tiene(numeroDeSocio)) {
+		while (existeSocioEn(posicion) && !socios[posicion].tiene(numeroDeSocio)) {
 			
 			posicion = incrementar(posicion);
 		}
