@@ -15,6 +15,11 @@ public class Socio {
 		this.fechaIngreso = fechaIngreso;
 	}
 	
+	public boolean tiene(int numero) {
+		
+		return (this.numero == numero);
+	}
+	
 	public int obtenerNumero() {
 		
 		return this.numero;
