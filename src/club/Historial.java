@@ -12,7 +12,7 @@ public class Historial {
 	@SuppressWarnings("unchecked")
 	public Historial(int capaciadadInicial) {
 		
-		socios = new List[50];
+		socios = new List[capaciadadInicial];
 		
 		for (int i = 0; i < socios.length; i++) {
 			socios[i] = new LinkedList<Socio>();
